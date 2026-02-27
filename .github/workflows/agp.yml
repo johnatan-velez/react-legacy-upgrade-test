@@ -52,6 +52,7 @@ jobs:
           dry-run: 'false'
           verbose: ${{ inputs.verbose }}
           docker-registry: sonatype.repo.sonatype.app/docker-all
+          docker-tag: guide-1598-agp-steps-ai-context-11-776ce46e
           docker-username: ${{ secrets.SONATYPE_DOCKER_USERNAME }}
           docker-password: ${{ secrets.SONATYPE_DOCKER_PASSWORD }}
         env:
