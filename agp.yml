@@ -1,0 +1,7 @@
+version: "1"
+agent:
+  enabled: true
+validation:
+  enabled: true
+  commands:
+    - "npm run build"
