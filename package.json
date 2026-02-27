@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "react": "16.14.0",
-    "react-dom": "16.14.0",
-    "react-router-dom": "4.3.1",
-    "react-scripts": "4.0.3",
-    "prop-types": "15.7.2"
+    "prop-types": "15.7.2",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-router-dom": "^7.13.1",
+    "react-scripts": "^5.1.0-next.26"
   },
   "scripts": {
     "start": "NODE_OPTIONS=--openssl-legacy-provider react-scripts start",
