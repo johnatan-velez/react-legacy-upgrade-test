@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link, useParams } from 'react-router-dom';
 import './App.css';
 
 // Mock data
@@ -42,9 +42,10 @@ function PostsList() {
 }
 
 // Single Post component
-function Post({ match }) {
+function Post() {
+  const { id: idParam } = useParams();
   const [post, setPost] = React.useState(null);
-  const id = parseInt(match.params.id);
+  const id = parseInt(idParam);
 
   React.useEffect(() => {
     const foundPost = mockPosts.find(p => p.id === id);
@@ -79,9 +80,10 @@ function UsersList() {
 }
 
 // Single User component
-function User({ match }) {
+function User() {
+  const { id: idParam } = useParams();
   const [user, setUser] = React.useState(null);
-  const id = parseInt(match.params.id);
+  const id = parseInt(idParam);
 
   React.useEffect(() => {
     const foundUser = mockUsers.find(u => u.id === id);
@@ -113,13 +115,13 @@ function App() {
         </nav>
 
         <main style={{ padding: '20px' }}>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/posts" component={PostsList} />
-            <Route path="/posts/:id" component={Post} />
-            <Route exact path="/users" component={UsersList} />
-            <Route path="/users/:id" component={User} />
-          </Switch>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/posts" element={<PostsList />} />
+            <Route path="/posts/:id" element={<Post />} />
+            <Route path="/users" element={<UsersList />} />
+            <Route path="/users/:id" element={<User />} />
+          </Routes>
         </main>
       </div>
     </Router>
